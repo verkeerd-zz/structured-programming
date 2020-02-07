@@ -1,0 +1,24 @@
+import random
+
+while True:  # checks if the user input is of the desired datatype and keeps requesting user input if it's not.
+    try:
+        maximum = int(input('kies het maximum nummer dat gegenereerd kan worden (minimum nummer is 1): '))
+        break
+    except ValueError:  # prints error message if the input does not consist of the desired data type.
+        print('Foute invoer. Probeer het opnieuw en geef een getal.')
+
+answer = random.randint(1, maximum)  # generates a random number between 0 and the user given maximum.
+found = False
+
+while not found:  # loops until the user input coincides with the answer.
+    while True:  # checks if the user input is of the desired datatype and keeps requesting user input if it's not.
+        try:
+            guess = int(input('Raad het getal tussen 0 en ' + str(maximum) + ': '))
+            break
+        except ValueError:  # prints error message if the input does not consist of the desired data type.
+            print('Foute invoer. Probeer het opnieuw en geef een getal.')
+    if guess == answer:  #compares the user's guess to the generated answer
+        found = True  # breaks out of the loop if the guess is correct.
+        break
+    print('Helaas, dit niet het goede nummer. Probeer het opnieuw.')  # prints a statement if the guess is not correct.
+print('Super! je hebt gewonnen. Het getal was inderdaad ' + str(answer))  # prints a statement if the guess is correct.
